@@ -6,6 +6,16 @@ import "./globals.css";
 export const metadata: Metadata = {
     title: "Dev Controle - Seu sistema de gerenciamento",
     description: "Gerencie seus cliente e atendimentos de forma facil",
+    icons: {
+        icon: [
+            {
+                url: '/logo.svg',
+                type: 'image/svg+xml',
+            }
+        ],
+        shortcut: '/logo.svg',
+        apple: '/logo.svg',
+    }
 };
 
 export default function RootLayout({

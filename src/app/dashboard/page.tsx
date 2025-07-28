@@ -13,7 +13,7 @@ export default async function Dashboard() {
                     </Link>
                 </div>
 
-                <div className="p-2 rounded bg-slate-200">
+                <div className="p-2 rounded bg-slate-200 mt-2">
                     <table className="w-full my-2 p-">
                         <thead>
                             <tr>

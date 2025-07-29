@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { AuthProviders } from "@/providers/auth";
+import { ModalProvider } from "@/providers/modal";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
     title: "Dev Controle - Seu sistema de gerenciamento",
@@ -29,8 +31,11 @@ export default function RootLayout({
                 className={`antialiased`}
             >
                 <AuthProviders>
-                    <Header />
-                    {children}
+                    <ModalProvider>
+                         <Header />
+                         <Toaster position="top-center"/>
+                        {children}
+                    </ModalProvider>
                 </AuthProviders>
             </body>
         </html>

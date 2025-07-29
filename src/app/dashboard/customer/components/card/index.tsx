@@ -16,7 +16,11 @@ export function CardCustumer({ customer }: { customer: CustomerProps }) {
             })
             router.refresh()
             toast.success('Deletado com sucesso!')
-        } catch (error) {
+        } catch (error: any) {
+            if(error?.response?.data?.error) {
+                toast.error("Este cliente ainda tem chamados abertos")
+                return;
+            }
             toast.error("Erro ao deletar cliente")
         }
     }

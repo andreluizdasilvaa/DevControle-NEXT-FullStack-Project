@@ -1,8 +1,8 @@
 "use client"
 
-import Link from "next/link"
-import { FiUser, FiLogOut, FiLoader, FiLogIn } from 'react-icons/fi'
+import { FiLogOut, FiLoader, FiLogIn } from 'react-icons/fi'
 import { signIn, signOut, useSession } from "next-auth/react"
+import Image from "next/image"
 
 export function Header() {
     const { data, status } = useSession()
@@ -37,10 +37,17 @@ export function Header() {
                 )}
 
                 {status === "authenticated" && (
-                    <div className="flex items-baseline gap-6">
-                        <Link href="/dashboard">
-                            <FiUser size={26} color="#4b5563" />
-                        </Link>
+                    <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-3 bg-blue-500 px-3 py-1 rounded-lg">
+                            <p className="font-medium text-white">{data.user.name}</p>
+                            <Image 
+                                src={data.user.image as string}
+                                alt="Imagem do usuário logado"
+                                width={40}
+                                height={40}
+                                className="rounded-full cursor-cell"
+                            />
+                        </div>
                         <button className="cursor-pointer" onClick={handleLogout}>
                             <FiLogOut size={26} color="#d92626" />
                         </button>

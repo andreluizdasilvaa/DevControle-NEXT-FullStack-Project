@@ -3,7 +3,6 @@ import { DashboardHeader } from "./components/header"
 import { redirect } from "next/navigation"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
-import { Toaster } from "sonner"
 
 export default async function DashboardLayout({ children }: {
     children: ReactNode
@@ -17,7 +16,6 @@ export default async function DashboardLayout({ children }: {
     return (
         <>
             <DashboardHeader />
-            <Toaster position="top-center"/>
             {children}
         </>
     )
